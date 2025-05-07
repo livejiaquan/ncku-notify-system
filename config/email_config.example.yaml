@@ -1,0 +1,12 @@
+smtp:
+  server: "smtp.gmail.com"
+  port: 587
+
+email:
+  sender: "your_email@gmail.com"
+  password: "your_app_password"
+  receiver: "your_email@gmail.com"
+
+notification:
+  subject: "自動化通知郵件"
+  body: "這是一封由程式發送的郵件。" 

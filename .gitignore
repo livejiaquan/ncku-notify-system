@@ -1,0 +1,27 @@
+ # 配置文件（包含敏感信息）
+config/email_config.yaml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 環境
+.env
+.venv
+env/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# 日誌和數據
+data/logs/*
+!data/logs/.gitkeep
+data/announcements/*
+!data/announcements/.gitkeep
+
+# 測試文件
+test/announcements/*
+!test/announcements/.gitkeep

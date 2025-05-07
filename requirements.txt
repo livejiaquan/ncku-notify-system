@@ -1,0 +1,10 @@
+# 網頁爬蟲相關
+selenium==4.11.2
+beautifulsoup4==4.12.2
+requests==2.31.0
+
+# 配置文件相關
+PyYAML==6.0.1
+
+# 瀏覽器驅動
+webdriver-manager==4.0.1 
