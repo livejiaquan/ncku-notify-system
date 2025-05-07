@@ -94,3 +94,7 @@ project_root/
 
 - Author: LIM JIA QUAN
 - Email: livejiaquan010313@gmail.com
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

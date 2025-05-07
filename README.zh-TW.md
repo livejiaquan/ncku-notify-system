@@ -83,3 +83,7 @@ project_root/
 
 - 作者：LIM JIA QUAN
 - 郵箱：livejiaquan010313@gmail.com
+
+## 授權條款
+
+本專案使用 MIT 授權條款 - 詳見 [LICENSE](LICENSE) 文件
