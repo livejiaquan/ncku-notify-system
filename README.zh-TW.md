@@ -1,5 +1,10 @@
 # NCKU OIA 公告爬蟲系統
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3100/)
+[![Selenium](https://img.shields.io/badge/Selenium-4.11.2-green.svg)](https://www.selenium.dev/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 自動爬取成功大學國際事務處網站公告，並通過電子郵件發送通知。
 
 ## 功能特點
