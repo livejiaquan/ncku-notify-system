@@ -11,5 +11,10 @@ webdriver-manager==4.0.1
 
 # 測試相關
 pytest==8.0.0
+pytest-cov==4.1.0
 black==24.1.1
-flake8==7.0.0 
+flake8==7.0.0
+
+# 文檔生成
+Sphinx==7.2.6
+sphinx-rtd-theme==2.0.0 
