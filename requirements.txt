@@ -7,4 +7,9 @@ requests==2.31.0
 PyYAML==6.0.1
 
 # 瀏覽器驅動
-webdriver-manager==4.0.1 
+webdriver-manager==4.0.1
+
+# 測試相關
+pytest==8.0.0
+black==24.1.1
+flake8==7.0.0 
