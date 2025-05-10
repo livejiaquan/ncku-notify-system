@@ -44,11 +44,18 @@ conda env create -f environment.yml
 1. 設置腳本執行權限：
 ```bash
 chmod +x run_crawler.sh
+chmod +x run_today.sh
 ```
 
 2. 執行腳本：
 ```bash
+# 爬取所有公告：
 ./run_crawler.sh
+
+# 只爬取今天的公告：
+./run_crawler.sh --only-today
+# 或使用專門的腳本：
+./run_today.sh
 ```
 
 腳本將會：

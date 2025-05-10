@@ -2,16 +2,24 @@ from ncku_oia_crawler import NCKUOIACrawler
 from email_sender import send_email
 from utils import setup_logger
 import sys
+import argparse
 
 def main():
+    # 設置命令行參數
+    parser = argparse.ArgumentParser(description='NCKU OIA 公告爬蟲系統')
+    parser.add_argument('--only-today', action='store_true', 
+                      help='僅爬取今天的公告')
+    args = parser.parse_args()
+    
     logger = setup_logger()
     
     try:
         crawler = NCKUOIACrawler()
         
-        # 爬取公告
+        # 爬取公告，使用命令行參數
         logger.info("開始爬取公告...")
-        announcements = crawler.fetch_announcements(only_today=False)
+        logger.info(f"只爬取今天的公告: {args.only_today}")
+        announcements = crawler.fetch_announcements(only_today=args.only_today)
         
         # 檢查新公告
         new_announcements = crawler.get_new_announcements(announcements)

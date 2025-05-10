@@ -46,11 +46,18 @@ You can use the provided shell script to run the crawler:
 1. Make the script executable:
 ```bash
 chmod +x run_crawler.sh
+chmod +x run_today.sh
 ```
 
 2. Run the script:
 ```bash
+# To crawl all announcements:
 ./run_crawler.sh
+
+# To crawl only today's announcements:
+./run_crawler.sh --only-today
+# Or use the dedicated script:
+./run_today.sh
 ```
 
 The script will:
