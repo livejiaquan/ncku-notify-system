@@ -3,6 +3,8 @@ from email_sender import send_email
 from utils import setup_logger
 import sys
 import argparse
+import traceback
+from datetime import datetime
 
 def main():
     # 設置命令行參數
@@ -37,13 +39,43 @@ def main():
                 logger.info("郵件發送成功")
             except Exception as e:
                 logger.error(f"發送郵件時發生錯誤: {e}")
+                # 發送錯誤通知郵件
+                send_error_notification("發送郵件失敗", str(e), traceback.format_exc())
                 raise
         else:
             logger.info("沒有新的公告")
 
     except Exception as e:
-        logger.error(f"程式執行過程中發生錯誤: {e}")
+        error_message = f"程式執行過程中發生錯誤: {e}"
+        logger.error(error_message)
+        # 發送錯誤通知郵件
+        send_error_notification("爬蟲程式執行失敗", str(e), traceback.format_exc())
         sys.exit(1)
+
+def send_error_notification(error_type, error_message, error_traceback):
+    """發送錯誤通知郵件"""
+    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    subject = f"[錯誤通知] NCKU OIA 爬蟲系統 - {error_type} ({current_time})"
+    
+    body = f"""
+<html>
+<body>
+<h2>NCKU OIA 爬蟲系統錯誤通知</h2>
+<p>時間：{current_time}</p>
+<p>錯誤類型：{error_type}</p>
+<p>錯誤信息：</p>
+<pre>{error_message}</pre>
+<p>詳細錯誤追踪：</p>
+<pre>{error_traceback}</pre>
+</body>
+</html>
+"""
+    
+    try:
+        send_email(subject=subject, body=body, is_html=True)
+        print(f"已發送錯誤通知郵件：{error_type}")
+    except Exception as email_error:
+        print(f"發送錯誤通知郵件時發生錯誤: {email_error}")
 
 if __name__ == "__main__":
     main() 

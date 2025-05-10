@@ -3,7 +3,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from config import load_config
 
-def send_email(subject=None, body=None):
+def send_email(subject=None, body=None, is_html=False):
     # 載入配置
     config = load_config('email_config.yaml')
     
@@ -23,7 +23,9 @@ def send_email(subject=None, body=None):
     msg['To'] = receiver_email
     msg['Subject'] = subject
 
-    msg.attach(MIMEText(body, 'plain'))
+    # 根據 is_html 參數決定郵件格式
+    content_type = 'html' if is_html else 'plain'
+    msg.attach(MIMEText(body, content_type))
 
     with smtplib.SMTP(smtp_server, smtp_port) as server:
         server.starttls()
